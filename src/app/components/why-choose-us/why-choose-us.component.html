@@ -1,0 +1,21 @@
+<section class="why-section">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="section-header">
+      <span class="section-subtitle">Why Partner With Us</span>
+      <h2 class="section-title">Built for Enterprise Reliability & Scalability</h2>
+      <p class="section-description">
+        We combine deep software engineering expertise with rigorous security standards to ensure your digital transformation succeeds.
+      </p>
+    </div>
+
+    <!-- Pillars Grid -->
+    <div class="pillars-grid">
+      <div *ngFor="let pillar of pillars" class="pillar-card glass-card">
+        <div class="pillar-icon">{{ pillar.icon }}</div>
+        <h3 class="pillar-title">{{ pillar.title }}</h3>
+        <p class="pillar-desc">{{ pillar.desc }}</p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,92 @@
+<section id="home" class="hero-section">
+  <!-- Glowing Background Orbs -->
+  <div class="ambient-orb orb-primary"></div>
+  <div class="ambient-orb orb-accent"></div>
+
+  <div class="container hero-container">
+    <div class="hero-content">
+      <!-- Badge -->
+      <div class="hero-badge">
+        <span class="pulse-dot"></span>
+        <span>Secure. Scalable. Smart. Solutions.</span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="hero-headline">
+        Building <span class="gradient-text">Enterprise Software</span> for the Digital Future
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="hero-subheading">
+        We design, develop, and deliver secure, scalable, and intelligent software solutions that empower organizations to innovate, automate, and accelerate growth globally.
+      </p>
+
+      <!-- CTA Buttons -->
+      <div class="hero-ctas">
+        <button (click)="scrollTo('contact')" class="btn btn-primary btn-lg">
+          <span>Get Started</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </button>
+
+        <button (click)="scrollTo('projects')" class="btn btn-secondary btn-lg">
+          <span>View Our Work</span>
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Quick Trust Badges -->
+      <div class="trust-tags">
+        <span class="trust-tag"><i class="check-icon">✓</i> AI Integration</span>
+        <span class="trust-tag"><i class="check-icon">✓</i> Cloud Architecture</span>
+        <span class="trust-tag"><i class="check-icon">✓</i> Enterprise Security</span>
+      </div>
+    </div>
+
+    <!-- Banner Graphic Frame / Visual Showcase -->
+    <div class="hero-visual">
+      <div class="banner-frame glass-card">
+        <img src="assets/images/banner.jpg" alt="Syntax & Sync Enterprise Technology Network Banner" class="hero-banner-img" />
+        
+        <!-- Floating Overlay Cards -->
+        <div class="floating-badge badge-top-left glass-card animate-float">
+          <div class="icon-circle bg-blue">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+          </div>
+          <div>
+            <div class="f-title">Enterprise Architecture</div>
+            <div class="f-sub">Microservices & Cloud-Native</div>
+          </div>
+        </div>
+
+        <div class="floating-badge badge-bottom-right glass-card animate-float" style="animation-delay: -3s;">
+          <div class="icon-circle bg-purple">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          </div>
+          <div>
+            <div class="f-title">100% Secure & Compliant</div>
+            <div class="f-sub">Spring Security & OAuth2</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Statistics Counter Bar -->
+  <div #statsSection class="stats-section">
+    <div class="container">
+      <div class="stats-grid glass-card">
+        <div *ngFor="let stat of stats; let i = index" class="stat-item">
+          <div class="stat-number">
+            {{ animatedStats[i] }}<span class="stat-suffix">{{ stat.suffix }}</span>
+          </div>
+          <div class="stat-label">{{ stat.label }}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,104 @@
+<section id="careers" class="careers-section">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="section-header">
+      <span class="section-subtitle">Join Our Team</span>
+      <h2 class="section-title">Shape the Future of Enterprise Software</h2>
+      <p class="section-description">
+        At Syntax & Sync Software Solutions, we build cutting-edge software platforms and foster an engineering-first culture of continuous learning and innovation.
+      </p>
+    </div>
+
+    <!-- Company Culture Grid -->
+    <div class="culture-grid">
+      <div *ngFor="let item of cultureHighlights" class="culture-card glass-card">
+        <div class="c-icon">{{ item.icon }}</div>
+        <h3 class="c-title">{{ item.title }}</h3>
+        <p class="c-desc">{{ item.desc }}</p>
+      </div>
+    </div>
+
+    <!-- Current Openings Section -->
+    <div class="openings-container">
+      <div class="openings-header">
+        <h3 class="o-heading">Current Openings</h3>
+
+        <div class="filter-pills">
+          <button (click)="setTypeFilter('All')" [class.active]="selectedType() === 'All'" class="pill-btn">All Roles</button>
+          <button (click)="setTypeFilter('Full-Time')" [class.active]="selectedType() === 'Full-Time'" class="pill-btn">Full-Time Jobs</button>
+          <button (click)="setTypeFilter('Internship')" [class.active]="selectedType() === 'Internship'" class="pill-btn">Internships</button>
+        </div>
+      </div>
+
+      <div class="openings-list">
+        <div *ngFor="let job of filteredOpenings" class="job-card glass-card">
+          <div class="job-info">
+            <div class="job-top">
+              <span class="job-type" [class.intern]="job.type === 'Internship'">{{ job.type }}</span>
+              <span class="job-dept">{{ job.department }} • {{ job.experience }}</span>
+            </div>
+            <h4 class="job-title">{{ job.title }}</h4>
+            <div class="job-meta">📍 {{ job.location }}</div>
+
+            <div class="job-tags">
+              <span *ngFor="let tag of job.tags" class="job-tag">{{ tag }}</span>
+            </div>
+          </div>
+
+          <div class="job-action">
+            <button (click)="openApplyModal(job)" class="btn btn-primary btn-sm">
+              Apply Now
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Apply Modal -->
+  <div *ngIf="applyModalJob()" class="modal-backdrop" (click)="closeApplyModal()">
+    <div class="modal-card glass-card" (click)="$event.stopPropagation()">
+      <button class="modal-close" (click)="closeApplyModal()">&times;</button>
+
+      <div *ngIf="!applicationSubmitted()">
+        <h3 class="m-title">Apply for {{ applyModalJob()?.title }}</h3>
+        <p class="m-sub">{{ applyModalJob()?.type }} • {{ applyModalJob()?.department }}</p>
+
+        <form (submit)="submitApplication($event)" class="apply-form">
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" required placeholder="John Doe" class="form-control" />
+          </div>
+
+          <div class="form-group">
+            <label>Email Address *</label>
+            <input type="email" required placeholder="john@example.com" class="form-control" />
+          </div>
+
+          <div class="form-group">
+            <label>Phone Number *</label>
+            <input type="tel" required placeholder="+91 98765 43210" class="form-control" />
+          </div>
+
+          <div class="form-group">
+            <label>LinkedIn / GitHub Profile URL</label>
+            <input type="url" placeholder="https://linkedin.com/in/username" class="form-control" />
+          </div>
+
+          <div class="form-group">
+            <label>Cover Note / Relevant Experience</label>
+            <textarea rows="3" placeholder="Tell us about your background with Java, Angular, or cloud development..." class="form-control"></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-full">Submit Application</button>
+        </form>
+      </div>
+
+      <div *ngIf="applicationSubmitted()" class="success-message text-center">
+        <div class="success-icon">🎉</div>
+        <h3>Application Submitted!</h3>
+        <p>Thank you for applying. Our talent acquisition team will review your application and contact you shortly.</p>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,166 @@
+<section id="contact" class="contact-section">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="section-header">
+      <span class="section-subtitle">Get In Touch</span>
+      <h2 class="section-title">Let’s Build Something Exceptional Together</h2>
+      <p class="section-description">
+        Have a new project, microservice architecture requirement, or enterprise consultation inquiry? Reach out to our engineering team today.
+      </p>
+    </div>
+
+    <div class="contact-grid">
+      <!-- Contact Info Sidebar -->
+      <div class="info-sidebar glass-card">
+        <h3 class="sidebar-title">Contact Information</h3>
+        <p class="sidebar-sub">Our enterprise solution architects are available for consultations.</p>
+
+        <div class="contact-details-list">
+          <div class="detail-item">
+            <div class="detail-icon">✉️</div>
+            <div>
+              <div class="detail-label">Email Us</div>
+              <a href="mailto:info@syntaxsync.com" class="detail-value">info@syntaxsync.com</a>
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <div class="detail-icon">📞</div>
+            <div>
+              <div class="detail-label">Call Us</div>
+              <a href="tel:+919876543210" class="detail-value">+91 98765 43210</a>
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <div class="detail-icon">🕒</div>
+            <div>
+              <div class="detail-label">Business Hours</div>
+              <div class="detail-value">Mon - Fri: 9:00 AM - 7:00 PM IST</div>
+              <div class="detail-sub">24/7 Production Support Available</div>
+            </div>
+          </div>
+
+          <div class="detail-item">
+            <div class="detail-icon">📍</div>
+            <div>
+              <div class="detail-label">Global Headquarters</div>
+              <div class="detail-value">Syntax & Sync Software Solutions</div>
+              <div class="detail-sub">Technology Innovation Hub</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="social-channels">
+          <div class="social-label">Connect & Social</div>
+          <div class="social-links">
+            <a href="https://linkedin.com" target="_blank" class="social-btn">LinkedIn</a>
+            <a href="https://github.com" target="_blank" class="social-btn">GitHub</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Professional Contact Form -->
+      <div class="form-container glass-card">
+        <form (submit)="submitForm($event)" class="contact-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="c-name">Full Name *</label>
+              <input
+                id="c-name"
+                type="text"
+                [(ngModel)]="formData.name"
+                name="name"
+                required
+                placeholder="e.g. Alexander Wright"
+                class="form-control"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="c-email">Work Email *</label>
+              <input
+                id="c-email"
+                type="email"
+                [(ngModel)]="formData.email"
+                name="email"
+                required
+                placeholder="e.g. alexander@company.com"
+                class="form-control"
+              />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="c-phone">Phone Number</label>
+              <input
+                id="c-phone"
+                type="tel"
+                [(ngModel)]="formData.phone"
+                name="phone"
+                placeholder="+91 98765 43210"
+                class="form-control"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="c-company">Company Name</label>
+              <input
+                id="c-company"
+                type="text"
+                [(ngModel)]="formData.company"
+                name="company"
+                placeholder="e.g. TVM Infotech"
+                class="form-control"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="c-requirement">Requirement Category *</label>
+            <select
+              id="c-requirement"
+              [(ngModel)]="formData.requirement"
+              name="requirement"
+              class="form-control"
+            >
+              <option *ngFor="let req of requirementsList" [value]="req">{{ req }}</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="c-message">Project Overview / Message *</label>
+            <textarea
+              id="c-message"
+              rows="4"
+              [(ngModel)]="formData.message"
+              name="message"
+              required
+              placeholder="Describe your project scope, tech stack preference, timeline, or objectives..."
+              class="form-control"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            [disabled]="isSubmitting()"
+            class="btn btn-primary btn-lg w-full"
+          >
+            <span *ngIf="!isSubmitting()">Send Message & Request Proposal</span>
+            <span *ngIf="isSubmitting()">Sending Inquiry...</span>
+          </button>
+        </form>
+
+        <!-- Success Toast Notification -->
+        <div *ngIf="isSubmitted()" class="form-toast success">
+          <span class="toast-icon">✓</span>
+          <div>
+            <strong>Message Sent Successfully!</strong>
+            <p>Our solutions team will get back to you within 24 hours.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

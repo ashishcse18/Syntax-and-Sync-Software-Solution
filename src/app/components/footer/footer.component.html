@@ -1,0 +1,101 @@
+<footer class="footer-wrapper">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Company Brand Column -->
+      <div class="footer-brand-col">
+        <a (click)="scrollTo('home')" class="footer-logo cursor-pointer">
+          <img src="assets/images/logo.png" alt="Syntax & Sync Logo" class="f-logo-img" />
+          <div class="f-brand-text">
+            <span class="f-name">SYNTAX <span class="text-primary">&</span> SYNC</span>
+            <span class="f-tag">SOFTWARE SOLUTIONS</span>
+          </div>
+        </a>
+
+        <p class="f-slogan">Secure. Scalable. Smart. Solutions.</p>
+
+        <p class="f-desc">
+          Empowering global enterprises through cloud-native architectures, Java Spring Boot microservices, AI integration, and recruitment automation platforms.
+        </p>
+      </div>
+
+      <!-- Services Links -->
+      <div class="footer-links-col">
+        <h4 class="f-heading">Services</h4>
+        <ul>
+          <li><a (click)="scrollTo('services')">Enterprise Software</a></li>
+          <li><a (click)="scrollTo('services')">Custom Web Apps</a></li>
+          <li><a (click)="scrollTo('services')">Java Spring Boot</a></li>
+          <li><a (click)="scrollTo('services')">Cloud & DevOps</a></li>
+          <li><a (click)="scrollTo('services')">AI Integration</a></li>
+          <li><a (click)="scrollTo('services')">HRMS Platforms</a></li>
+        </ul>
+      </div>
+
+      <!-- Quick Navigation -->
+      <div class="footer-links-col">
+        <h4 class="f-heading">Company</h4>
+        <ul>
+          <li><a (click)="scrollTo('about')">About Us</a></li>
+          <li><a (click)="scrollTo('technologies')">Tech Stack</a></li>
+          <li><a (click)="scrollTo('projects')">Featured Projects</a></li>
+          <li><a (click)="scrollTo('industries')">Industries</a></li>
+          <li><a (click)="scrollTo('careers')">Careers</a></li>
+          <li><a (click)="scrollTo('contact')">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <!-- Tech Stack & Connect -->
+      <div class="footer-connect-col">
+        <h4 class="f-heading">Newsletter & Insights</h4>
+        <p class="f-sub-text">Subscribe for technical insights on microservices, cloud scaling, and AI enterprise trends.</p>
+
+        <div class="newsletter-box">
+          <input type="email" placeholder="Enter your work email" class="f-input" />
+          <button class="f-btn">Subscribe</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="footer-bottom">
+      <div class="copyright">
+        © 2026 <strong>Syntax & Sync Software Solutions</strong>. All Rights Reserved.
+      </div>
+
+      <div class="legal-links">
+        <a (click)="openModal('privacy')">Privacy Policy</a>
+        <span class="sep">•</span>
+        <a (click)="openModal('terms')">Terms & Conditions</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Privacy Policy / Terms Modal -->
+  <div *ngIf="activeModal()" class="modal-backdrop" (click)="closeModal()">
+    <div class="modal-card glass-card" (click)="$event.stopPropagation()">
+      <button class="modal-close" (click)="closeModal()">&times;</button>
+
+      <div *ngIf="activeModal() === 'privacy'">
+        <h3 class="m-title">Privacy Policy</h3>
+        <p class="m-text">Syntax & Sync Software Solutions respects your data privacy. We handle client data strictly in accordance with global enterprise security standards, GDPR, and ISO compliance.</p>
+        <h4 class="m-sub">1. Information Collection</h4>
+        <p class="m-text">We only collect essential business contact details submitted through our contact forms or employment application portals.</p>
+        <h4 class="m-sub">2. Security Standards</h4>
+        <p class="m-text">All communications and client metrics are stored with end-to-end encryption, strict role-based access control, and zero third-party disclosure.</p>
+      </div>
+
+      <div *ngIf="activeModal() === 'terms'">
+        <h3 class="m-title">Terms & Conditions</h3>
+        <p class="m-text">Welcome to Syntax & Sync Software Solutions. By engaging with our software engineering services, consulting, or web platforms, you agree to our standard software delivery terms.</p>
+        <h4 class="m-sub">1. Intellectual Property</h4>
+        <p class="m-text">All custom developed code, microservice deliverables, and client platforms created under contract remain 100% owned by the commissioning enterprise upon settlement.</p>
+        <h4 class="m-sub">2. Service SLA</h4>
+        <p class="m-text">Production deployment and support agreements adhere to strict SLA targets negotiated under enterprise contracts.</p>
+      </div>
+
+      <div class="modal-footer" style="margin-top: 1.5rem;">
+        <button (click)="closeModal()" class="btn btn-primary btn-sm">Close</button>
+      </div>
+    </div>
+  </div>
+</footer>

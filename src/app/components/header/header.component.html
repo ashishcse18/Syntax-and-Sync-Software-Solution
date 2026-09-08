@@ -1,0 +1,90 @@
+<header [class.scrolled]="isScrolled()" class="navbar-wrapper">
+  <div class="container navbar-inner">
+    <!-- Brand Logo -->
+    <a (click)="scrollTo('#home')" class="brand-logo cursor-pointer">
+      <img src="assets/images/logo.png" alt="Syntax & Sync Logo" class="logo-img" />
+      <div class="brand-text">
+        <span class="company-name">SYNTAX <span class="text-primary">&</span> SYNC</span>
+        <span class="company-tagline">SOFTWARE SOLUTIONS</span>
+      </div>
+    </a>
+
+    <!-- Desktop Navigation Links -->
+    <nav class="desktop-nav">
+      <ul class="nav-list">
+        <li *ngFor="let item of navItems">
+          <a
+            (click)="scrollTo(item.href)"
+            [class.active]="activeSection() === item.href.substring(1)"
+            class="nav-link"
+          >
+            {{ item.label }}
+          </a>
+        </li>
+      </ul>
+    </nav>
+
+    <!-- Header Right Actions -->
+    <div class="header-actions">
+      <!-- Theme Switcher -->
+      <button
+        (click)="toggleTheme()"
+        class="theme-toggle-btn"
+        [attr.aria-label]="'Switch to ' + (themeService.currentTheme() === 'dark' ? 'Light' : 'Dark') + ' Mode'"
+        title="Toggle Theme"
+      >
+        <!-- Sun Icon for Light Mode -->
+        <svg *ngIf="themeService.currentTheme() === 'dark'" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <circle cx="12" cy="12" r="4"></circle>
+          <path d="M12 2v2"></path>
+          <path d="M12 20v2"></path>
+          <path d="m4.93 4.93 1.41 1.41"></path>
+          <path d="m17.66 17.66 1.41 1.41"></path>
+          <path d="M2 12h2"></path>
+          <path d="M20 12h2"></path>
+          <path d="m6.34 17.66-1.41 1.41"></path>
+          <path d="m19.07 4.93-1.41 1.41"></path>
+        </svg>
+        <!-- Moon Icon for Dark Mode -->
+        <svg *ngIf="themeService.currentTheme() === 'light'" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path>
+        </svg>
+      </button>
+
+      <!-- Get In Touch Button -->
+      <button (click)="scrollTo('#contact')" class="btn btn-primary btn-sm desktop-only">
+        Get In Touch
+      </button>
+
+      <!-- Mobile Hamburger Button -->
+      <button
+        (click)="toggleMobileMenu()"
+        class="mobile-hamburger"
+        [class.open]="mobileMenuOpen()"
+        aria-label="Toggle Mobile Menu"
+      >
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Drawer Menu -->
+  <div class="mobile-drawer" [class.active]="mobileMenuOpen()">
+    <nav class="mobile-nav">
+      <ul>
+        <li *ngFor="let item of navItems">
+          <a (click)="scrollTo(item.href)" [class.active]="activeSection() === item.href.substring(1)">
+            {{ item.label }}
+          </a>
+        </li>
+      </ul>
+      <div class="mobile-drawer-cta">
+        <button (click)="scrollTo('#contact')" class="btn btn-primary w-full">
+          Get Started
+        </button>
+      </div>
+    </nav>
+  </div>
+</header>

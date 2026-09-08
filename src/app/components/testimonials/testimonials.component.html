@@ -1,0 +1,31 @@
+<section class="testimonials-section">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="section-header">
+      <span class="section-subtitle">Client Endorsements</span>
+      <h2 class="section-title">Trusted by Global Enterprise Leaders</h2>
+      <p class="section-description">
+        Read how Syntax & Sync Software Solutions partners with enterprise clients to deliver high-impact digital products.
+      </p>
+    </div>
+
+    <!-- Testimonials Grid -->
+    <div class="testi-grid">
+      <div *ngFor="let t of testimonials" class="testi-card glass-card">
+        <div class="stars">
+          <span *ngFor="let star of [1,2,3,4,5]">★</span>
+        </div>
+
+        <p class="quote-text">"{{ t.quote }}"</p>
+
+        <div class="author-info">
+          <span class="author-avatar">{{ t.avatar }}</span>
+          <div>
+            <div class="author-name">{{ t.author }}</div>
+            <div class="author-company">{{ t.company }}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

@@ -1,0 +1,21 @@
+<section id="industries" class="industries-section">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="section-header">
+      <span class="section-subtitle">Domain Expertise</span>
+      <h2 class="section-title">Industries We Empower</h2>
+      <p class="section-description">
+        Delivering tailored, domain-specific enterprise software solutions across diverse global industry verticals.
+      </p>
+    </div>
+
+    <!-- Industries Grid -->
+    <div class="ind-grid">
+      <div *ngFor="let ind of industries" class="ind-card glass-card">
+        <div class="ind-icon-box">{{ ind.icon }}</div>
+        <h3 class="ind-name">{{ ind.name }}</h3>
+        <p class="ind-desc">{{ ind.desc }}</p>
+      </div>
+    </div>
+  </div>
+</section>

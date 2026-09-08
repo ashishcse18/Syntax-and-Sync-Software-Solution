@@ -1,0 +1,80 @@
+<section id="projects" class="projects-section">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="section-header">
+      <span class="section-subtitle">Case Studies</span>
+      <h2 class="section-title">Featured Enterprise Projects</h2>
+      <p class="section-description">
+        Explore flagship solutions built for high scalability, recruitment automation, and document generation powered by Angular, Java Spring Boot, and AI.
+      </p>
+    </div>
+
+    <!-- Projects Grid -->
+    <div class="projects-grid">
+      <div *ngFor="let proj of projects" class="project-card glass-card">
+        <div class="card-header">
+          <div class="proj-badge-wrapper">
+            <span class="proj-icon">{{ proj.icon }}</span>
+            <span class="proj-category">{{ proj.category }}</span>
+          </div>
+          <span *ngIf="proj.client" class="client-badge">Client: {{ proj.client }}</span>
+        </div>
+
+        <h3 class="proj-title">{{ proj.title }}</h3>
+        <p class="proj-desc">{{ proj.description }}</p>
+
+        <!-- Tech Badges -->
+        <div class="tech-tags">
+          <span *ngFor="let t of proj.techStack" class="tech-tag">{{ t }}</span>
+        </div>
+
+        <!-- Card Actions -->
+        <div class="card-actions">
+          <button (click)="openModal(proj)" class="btn btn-outline btn-sm">
+            <span>View Architecture</span>
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line><line x1="11" y1="8" x2="11" y2="14"></line><line x1="8" y1="11" x2="14" y2="11"></line></svg>
+          </button>
+          <span class="github-status">Repository: <strong>{{ proj.githubUrl }}</strong></span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Detailed Modal Popup -->
+  <div *ngIf="activeModalProject()" class="modal-backdrop" (click)="closeModal()">
+    <div class="modal-card glass-card" (click)="$event.stopPropagation()">
+      <button class="modal-close" (click)="closeModal()" aria-label="Close Modal">&times;</button>
+      
+      <div class="modal-header">
+        <span class="modal-icon">{{ activeModalProject()?.icon }}</span>
+        <div>
+          <span class="modal-cat">{{ activeModalProject()?.category }}</span>
+          <h3 class="modal-title">{{ activeModalProject()?.title }}</h3>
+          <p *ngIf="activeModalProject()?.client" class="modal-client">Developed for: <strong>{{ activeModalProject()?.client }}</strong></p>
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <h4 class="m-sub">Overview</h4>
+        <p class="m-text">{{ activeModalProject()?.description }}</p>
+
+        <h4 class="m-sub">Key Technical Features</h4>
+        <ul class="modal-features">
+          <li *ngFor="let feat of activeModalProject()?.features">
+            <span class="check-bullet">✓</span> {{ feat }}
+          </li>
+        </ul>
+
+        <h4 class="m-sub">Technology Stack</h4>
+        <div class="tech-tags">
+          <span *ngFor="let t of activeModalProject()?.techStack" class="tech-tag tag-primary">{{ t }}</span>
+        </div>
+      </div>
+
+      <div class="modal-footer">
+        <span class="repo-info">Source Code Status: {{ activeModalProject()?.githubUrl }}</span>
+        <button (click)="closeModal()" class="btn btn-primary btn-sm">Close Overview</button>
+      </div>
+    </div>
+  </div>
+</section>

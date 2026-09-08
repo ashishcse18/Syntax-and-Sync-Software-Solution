@@ -1,0 +1,37 @@
+<section id="technologies" class="tech-section">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="section-header">
+      <span class="section-subtitle">Our Capabilities</span>
+      <h2 class="section-title">Enterprise Technology Ecosystem</h2>
+      <p class="section-description">
+        We leverage battle-tested open-source frameworks, cloud infrastructure, modern databases, and developer tooling to build scalable enterprise platforms.
+      </p>
+    </div>
+
+    <!-- Tech Tabs -->
+    <div class="tech-tabs">
+      <button
+        *ngFor="let cat of categories"
+        (click)="setCategory(cat.id)"
+        [class.active]="selectedCat() === cat.id"
+        class="tech-tab"
+      >
+        {{ cat.label }}
+      </button>
+    </div>
+
+    <!-- Tech Grid -->
+    <div class="tech-grid">
+      <div *ngFor="let tech of filteredTech" class="tech-card glass-card">
+        <div class="tech-header">
+          <span class="tech-icon">{{ tech.icon }}</span>
+          <span class="tech-badge">{{ tech.badge }}</span>
+        </div>
+
+        <h3 class="tech-name">{{ tech.name }}</h3>
+        <p class="tech-desc">{{ tech.desc }}</p>
+      </div>
+    </div>
+  </div>
+</section>

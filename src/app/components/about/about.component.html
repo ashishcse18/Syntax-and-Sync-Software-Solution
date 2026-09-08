@@ -1,0 +1,60 @@
+<section id="about" class="about-section">
+  <div class="container">
+    <!-- Section Header -->
+    <div class="section-header">
+      <span class="section-subtitle">Who We Are</span>
+      <h2 class="section-title">Driven by Engineering Excellence & Digital Transformation</h2>
+      <p class="section-description">
+        Syntax & Sync Software Solutions is a premier technology company specializing in enterprise software development, cloud-native systems, AI integration, and custom digital platforms.
+      </p>
+    </div>
+
+    <!-- Intro Banner Card -->
+    <div class="intro-card glass-card">
+      <div class="intro-grid">
+        <div class="intro-text">
+          <h3 class="intro-heading">Architecting Secure, Scalable & Smart Systems</h3>
+          <p class="intro-paragraph">
+            We empower businesses to navigate complex digital landscapes through modern software architecture, Java Spring Boot microservices, high-performance Angular web applications, and artificial intelligence integration.
+          </p>
+          <p class="intro-paragraph">
+            Our multi-disciplinary team brings Fortune 500 engineering practices to organizations seeking operational efficiency, recruitment automation, enterprise document platforms, and cloud resilience.
+          </p>
+        </div>
+
+        <div class="mission-vision-container">
+          <!-- Mission Card -->
+          <div class="mv-box glass-card border-blue">
+            <div class="mv-header">
+              <div class="mv-icon bg-blue">🎯</div>
+              <h4>Our Mission</h4>
+            </div>
+            <p>Empowering businesses through secure, scalable, and intelligent software solutions.</p>
+          </div>
+
+          <!-- Vision Card -->
+          <div class="mv-box glass-card border-purple">
+            <div class="mv-header">
+              <div class="mv-icon bg-purple">👁️</div>
+              <h4>Our Vision</h4>
+            </div>
+            <p>To become a globally trusted technology partner delivering enterprise software and digital transformation solutions.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Core Values Section -->
+    <div class="values-wrapper">
+      <h3 class="values-heading">Our Core Pillars & Values</h3>
+
+      <div class="values-grid">
+        <div *ngFor="let val of coreValues" class="value-card glass-card">
+          <div class="val-icon">{{ val.icon }}</div>
+          <h4 class="val-title">{{ val.title }}</h4>
+          <p class="val-desc">{{ val.desc }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
