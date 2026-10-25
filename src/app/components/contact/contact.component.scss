@@ -171,6 +171,15 @@
   width: 100%;
 }
 
+.honeypot {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+}
+
 .form-toast {
   margin-top: 1.5rem;
   padding: 1rem 1.25rem;
@@ -188,5 +197,11 @@
     .toast-icon {
       font-weight: 800;
     }
+  }
+
+  &.error {
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    color: var(--text-main);
   }
 }

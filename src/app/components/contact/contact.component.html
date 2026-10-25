@@ -132,6 +132,18 @@
             ></textarea>
           </div>
 
+          <div class="honeypot" aria-hidden="true">
+            <label for="c-website">Leave this field empty</label>
+            <input
+              id="c-website"
+              type="text"
+              [(ngModel)]="honeypot"
+              name="website"
+              tabindex="-1"
+              autocomplete="off"
+            />
+          </div>
+
           <button
             type="submit"
             [disabled]="isSubmitting()"
@@ -146,9 +158,12 @@
         <div *ngIf="isSubmitted()" class="form-toast success">
           <span class="toast-icon">✓</span>
           <div>
-            <strong>Message Sent Successfully!</strong>
-            <p>Our solutions team will get back to you within 24 hours.</p>
+            <strong>Inquiry sent successfully!</strong>
+            <p>Email and WhatsApp notifications were sent to our team.</p>
           </div>
+        </div>
+        <div *ngIf="submissionError()" class="form-toast error" role="alert">
+          {{ submissionError() }}
         </div>
       </div>
     </div>
